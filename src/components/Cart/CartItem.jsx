@@ -5,9 +5,9 @@ import CartContext from '../../context/cart-context.js';
 
 const CartItem = ({ cart }) => {
 
-  console.log('cart: ', cart);
+  // console.log('cart: ', cart);
 
-  const { addToCartItem } = useContext(CartContext);
+  const { addToCartItem, removeToCartItem } = useContext(CartContext);
 
   const { id, name, price, amount } = cart;
 
@@ -21,15 +21,6 @@ const CartItem = ({ cart }) => {
 
   const formatPrice = new Intl.NumberFormat('ko-KR').format(price);
 
-  const handleMinusClick = () => {
-    addToCartItem({
-      id,
-      name,
-      price: -(price / amount),
-      amount: -1,
-    });
-  };
-
   const handleAddClick = () => {
     addToCartItem({
       id,
@@ -37,6 +28,10 @@ const CartItem = ({ cart }) => {
       price: price / amount,
       amount: 1,
     });
+  };
+
+  const handleSubClick = () => {
+    removeToCartItem(id);
   };
 
   return (
@@ -49,7 +44,7 @@ const CartItem = ({ cart }) => {
         </div>
       </div>
       <div className={actions}>
-        <button onClick={handleMinusClick}>−</button>
+        <button onClick={handleSubClick}>−</button>
         <button onClick={handleAddClick}>+</button>
       </div>
     </li>

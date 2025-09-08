@@ -1,6 +1,5 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styles from './CartModal.module.scss';
-import CartContext from '../../context/cart-context.js';
 
 const ModalOverlay = ({ children }) => {
   return (

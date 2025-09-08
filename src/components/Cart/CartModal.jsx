@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './CartModal.module.scss';
+import CartContext from '../../context/cart-context.js';
 
 const ModalOverlay = ({ children }) => {
   return (
@@ -12,7 +13,7 @@ const ModalOverlay = ({ children }) => {
 const CartModal = ({ children, onClose }) => {
   return (
     <>
-      <div className={styles.backdrop} onClick={onClose} />
+      <div className={styles.backdrop} onClick={onClose}/>
       <ModalOverlay>{children}</ModalOverlay>
     </>
   );

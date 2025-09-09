@@ -2,10 +2,14 @@ import styles from './ZustandCounter.module.scss';
 
 const ZustandCounter = () => {
 
+  // 상태 구독
+  const { count, showCounter } = useCounterStore();
+  // console.log('x: ', x);
+
   return (
     <main className={styles.counter}>
       <h1>Zustand Counter</h1>
-      <div className={styles.value}>0</div>
+      <div className={styles.value}>{count}</div>
       <div
         style={{
           display: 'flex',
